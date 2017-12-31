@@ -4,7 +4,7 @@ import twitter
 import os
 import sys
 
-def encoder(num):
+def encode(num):
     if num == 0:
         return format(0x7E, 'b')
     elif num == 1:
@@ -28,7 +28,7 @@ def encoder(num):
     else:
         return "err"
 
-def display_setter(pins, flags):
+def display(pins, flags):
     for pin, flag in zip(pins, flags):
         if flag == "1":
             GPIO.output(pin, GPIO.HIGH)
@@ -40,6 +40,7 @@ def gpio_init(pins, digs):
     for pin in pins+digs:
         GPIO.setup(pin, GPIO.OUT)
         GPIO.output(pin, GPIO.LOW)
+
 if __name__ == "__main__":
     #A:11, B:7, C:4, D:2, E:1, F:10, G:5
     #EDCGBFA
